@@ -22,70 +22,46 @@
         template: function template(props) {
           console.log(props.component);
           return '';
-          // switch (true) {
-          //   case props.component.length > 0:
-          //     return "<p><b>Date:</b> ".concat(props.date, "</p><div class=\"field is-grouped is-grouped-multiline\">\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-success\">operational</span>\n                            <span class=\"tag\">").concat(props.operasional, "</span>\n                        </div>\n                    </div>\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-primary\">degraded-performance</span>\n                            <span class=\"tag\">").concat(props.degraded_performance, "</span>\n                        </div>\n                    </div>\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-warning\">partial-outage</span>\n                            <span class=\"tag\">").concat(props.partial_outage, "</span>\n                        </div>\n                    </div>\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-danger\">major-outage</span>\n                            <span class=\"tag\">").concat(props.major_outage, "</span>\n                        </div>\n                    </div>\n                </div>\n                <table class=\"table\">\n                    <thead>\n                    <tr>\n                        <th>Service</th>\n                        <th>Status</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                        ").concat(props.component.map(function (comp) {
-          //       var color = '';
-
-          //       if (comp.status === 'operational') {
-          //         color = 'tag is-success';
-          //       } else if (comp.status === 'degraded_performance') {
-          //         color = 'tag is-primary';
-          //       } else if (comp.status === 'partial_outage') {
-          //         color = 'tag is-warning';
-          //       } else {
-          //         color = 'tag is-danger';
-          //       }
-
-          //       return "<tr>\n                                <td data-label=\"Service\">".concat(comp.name, "</td>\n                                <td data-label=\"Status\"><span class=\"").concat(color, "\">").concat(comp.status, "</span></td>\n                            </tr>");
-          //     }).join(''), "\n                    </tbody>\n                </table>");
-
-          //   case props.status === 0:
-          //     return "<div id=\"msg\" class=\"notification is-warning\">\n                    <button class=\"delete\" onclick=\"deleteMsg()\"></button>\n                        Sorry, we failed to get status network right now, please try again later.\n                    </div>";
-
-          //   default:
-          //     return '';
-          // }
         }
       });
       app.render();
 
-      function deleteMsg() {
-        app.data.status = 1;
-      }
+      // function deleteMsg() {
+      //   app.data.status = 1;
+      // }
 
-      function throwError() {
-        app.data.component = [];
-        app.data.operasional = 0;
-        app.data.degraded_performance = 0;
-        app.data.partial_outage = 0;
-        app.data.major_outage = 0;
-        app.data.status = 0;
-      }
+      // function throwError() {
+      //   app.data.component = [];
+      //   app.data.operasional = 0;
+      //   app.data.degraded_performance = 0;
+      //   app.data.partial_outage = 0;
+      //   app.data.major_outage = 0;
+      //   app.data.status = 0;
+      // }
 
-      ajax().get('https://yh6f0r4529hb.statuspage.io/api/v2/components.json').then(function (response, xhr) {
-        app.data.status = 1;
+      // ajax().get('https://yh6f0r4529hb.statuspage.io/api/v2/components.json').then(function (response, xhr) {
+      //   app.data.status = 1;
 
-        if (response && xhr.status === 200) {
-          var nosql = new FlyJson();
-          var result = nosql.set(response.components).where('name', 'LIKE', ' - (').exec();
-          var resultdata = nosql.shallowClone(result);
-          var operasional = nosql.set(resultdata).where('status', '===', 'operational').exec();
-          var degraded_performance = nosql.set(resultdata).where('status', '===', 'degraded_performance').exec();
-          var partial_outage = nosql.set(resultdata).where('status', '===', 'partial_outage').exec();
-          var major_outage = nosql.set(resultdata).where('status', '===', 'major_outage').exec();
-          app.data.component = result;
-          app.data.operasional = operasional.length;
-          app.data.degraded_performance = degraded_performance.length;
-          app.data.partial_outage = partial_outage.length;
-          app.data.major_outage = major_outage.length;
-          app.data.date = new Date(response.page.updated_at);
-        } else {
-          throwError();
-        }
-      }).catch(function (response, xhr) {
-        throwError();
-      });
+      //   if (response && xhr.status === 200) {
+      //     var nosql = new FlyJson();
+      //     var result = nosql.set(response.components).where('name', 'LIKE', ' - (').exec();
+      //     var resultdata = nosql.shallowClone(result);
+      //     var operasional = nosql.set(resultdata).where('status', '===', 'operational').exec();
+      //     var degraded_performance = nosql.set(resultdata).where('status', '===', 'degraded_performance').exec();
+      //     var partial_outage = nosql.set(resultdata).where('status', '===', 'partial_outage').exec();
+      //     var major_outage = nosql.set(resultdata).where('status', '===', 'major_outage').exec();
+      //     app.data.component = result;
+      //     app.data.operasional = operasional.length;
+      //     app.data.degraded_performance = degraded_performance.length;
+      //     app.data.partial_outage = partial_outage.length;
+      //     app.data.major_outage = major_outage.length;
+      //     app.data.date = new Date(response.page.updated_at);
+      //   } else {
+      //     throwError();
+      //   }
+      // }).catch(function (response, xhr) {
+      //   throwError();
+      // });
     </script>
   </body>
 </html>

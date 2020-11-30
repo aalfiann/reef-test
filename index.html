@@ -9,19 +9,14 @@
     <script>
       var app = new Reef("#app", {
         data: {
-          date: '',
-          component: [],
-          operasional: 0,
-          degraded_performance: 0,
-          partial_outage: 0,
-          major_outage: 0,
-          status: 1
+          component: []
         },
         template: function template(props) {
-          // This should return 0
+          // This should display log 0
           console.log(props.component.length);
           // return ''; // this not work
-          return ""; // this work
+          // return ""; // this not work
+          return props.component.length; // this work
         }
       });
 

@@ -16,7 +16,10 @@
           console.log(props.component.length);
           // return ''; // this not work
           // return ""; // this not work
-          return props.component.length; // this work
+          // return props.component.length; // this work
+          if (props.component.length > 0) {
+            return props.component.length; // this work
+          }
         }
       });
 

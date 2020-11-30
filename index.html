@@ -20,30 +20,31 @@
           status: 1
         },
         template: function template(props) {
-          switch (true) {
-            case props.component.length > 0:
-              return "<p><b>Date:</b> ".concat(props.date, "</p><div class=\"field is-grouped is-grouped-multiline\">\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-success\">operational</span>\n                            <span class=\"tag\">").concat(props.operasional, "</span>\n                        </div>\n                    </div>\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-primary\">degraded-performance</span>\n                            <span class=\"tag\">").concat(props.degraded_performance, "</span>\n                        </div>\n                    </div>\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-warning\">partial-outage</span>\n                            <span class=\"tag\">").concat(props.partial_outage, "</span>\n                        </div>\n                    </div>\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-danger\">major-outage</span>\n                            <span class=\"tag\">").concat(props.major_outage, "</span>\n                        </div>\n                    </div>\n                </div>\n                <table class=\"table\">\n                    <thead>\n                    <tr>\n                        <th>Service</th>\n                        <th>Status</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                        ").concat(props.component.map(function (comp) {
-                var color = '';
+          console.log(props.component);
+          // switch (true) {
+          //   case props.component.length > 0:
+          //     return "<p><b>Date:</b> ".concat(props.date, "</p><div class=\"field is-grouped is-grouped-multiline\">\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-success\">operational</span>\n                            <span class=\"tag\">").concat(props.operasional, "</span>\n                        </div>\n                    </div>\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-primary\">degraded-performance</span>\n                            <span class=\"tag\">").concat(props.degraded_performance, "</span>\n                        </div>\n                    </div>\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-warning\">partial-outage</span>\n                            <span class=\"tag\">").concat(props.partial_outage, "</span>\n                        </div>\n                    </div>\n                    <div class=\"control\">\n                        <div class=\"tags has-addons\">\n                            <span class=\"tag is-danger\">major-outage</span>\n                            <span class=\"tag\">").concat(props.major_outage, "</span>\n                        </div>\n                    </div>\n                </div>\n                <table class=\"table\">\n                    <thead>\n                    <tr>\n                        <th>Service</th>\n                        <th>Status</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                        ").concat(props.component.map(function (comp) {
+          //       var color = '';
 
-                if (comp.status === 'operational') {
-                  color = 'tag is-success';
-                } else if (comp.status === 'degraded_performance') {
-                  color = 'tag is-primary';
-                } else if (comp.status === 'partial_outage') {
-                  color = 'tag is-warning';
-                } else {
-                  color = 'tag is-danger';
-                }
+          //       if (comp.status === 'operational') {
+          //         color = 'tag is-success';
+          //       } else if (comp.status === 'degraded_performance') {
+          //         color = 'tag is-primary';
+          //       } else if (comp.status === 'partial_outage') {
+          //         color = 'tag is-warning';
+          //       } else {
+          //         color = 'tag is-danger';
+          //       }
 
-                return "<tr>\n                                <td data-label=\"Service\">".concat(comp.name, "</td>\n                                <td data-label=\"Status\"><span class=\"").concat(color, "\">").concat(comp.status, "</span></td>\n                            </tr>");
-              }).join(''), "\n                    </tbody>\n                </table>");
+          //       return "<tr>\n                                <td data-label=\"Service\">".concat(comp.name, "</td>\n                                <td data-label=\"Status\"><span class=\"").concat(color, "\">").concat(comp.status, "</span></td>\n                            </tr>");
+          //     }).join(''), "\n                    </tbody>\n                </table>");
 
-            case props.status === 0:
-              return "<div id=\"msg\" class=\"notification is-warning\">\n                    <button class=\"delete\" onclick=\"deleteMsg()\"></button>\n                        Sorry, we failed to get status network right now, please try again later.\n                    </div>";
+          //   case props.status === 0:
+          //     return "<div id=\"msg\" class=\"notification is-warning\">\n                    <button class=\"delete\" onclick=\"deleteMsg()\"></button>\n                        Sorry, we failed to get status network right now, please try again later.\n                    </div>";
 
-            default:
-              return '';
-          }
+          //   default:
+          //     return '';
+          // }
         }
       });
       app.render();

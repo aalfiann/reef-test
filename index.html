@@ -6,8 +6,8 @@
     <div id="app"></div>
     <script src="https://cdn.jsdelivr.net/npm/reefjs@7.6.1/dist/reef.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reefjs@7.6.1/dist/reef.polyfills.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/aalfiann/ajax@3.0.4/dist/ajax.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fly-json-odm@1.10.3/dist/flyjson.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/aalfiann/ajax@3.0.4/dist/ajax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fly-json-odm@1.10.3/dist/flyjson.min.js"></script> -->
     <script>
       var app = new Reef("#app", {
         data: {
@@ -24,44 +24,8 @@
           return '';
         }
       });
+
       app.render();
-
-      // function deleteMsg() {
-      //   app.data.status = 1;
-      // }
-
-      // function throwError() {
-      //   app.data.component = [];
-      //   app.data.operasional = 0;
-      //   app.data.degraded_performance = 0;
-      //   app.data.partial_outage = 0;
-      //   app.data.major_outage = 0;
-      //   app.data.status = 0;
-      // }
-
-      // ajax().get('https://yh6f0r4529hb.statuspage.io/api/v2/components.json').then(function (response, xhr) {
-      //   app.data.status = 1;
-
-      //   if (response && xhr.status === 200) {
-      //     var nosql = new FlyJson();
-      //     var result = nosql.set(response.components).where('name', 'LIKE', ' - (').exec();
-      //     var resultdata = nosql.shallowClone(result);
-      //     var operasional = nosql.set(resultdata).where('status', '===', 'operational').exec();
-      //     var degraded_performance = nosql.set(resultdata).where('status', '===', 'degraded_performance').exec();
-      //     var partial_outage = nosql.set(resultdata).where('status', '===', 'partial_outage').exec();
-      //     var major_outage = nosql.set(resultdata).where('status', '===', 'major_outage').exec();
-      //     app.data.component = result;
-      //     app.data.operasional = operasional.length;
-      //     app.data.degraded_performance = degraded_performance.length;
-      //     app.data.partial_outage = partial_outage.length;
-      //     app.data.major_outage = major_outage.length;
-      //     app.data.date = new Date(response.page.updated_at);
-      //   } else {
-      //     throwError();
-      //   }
-      // }).catch(function (response, xhr) {
-      //   throwError();
-      // });
     </script>
   </body>
 </html>

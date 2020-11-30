@@ -4,8 +4,8 @@
   </head>
   <body>
     <div id="app"></div>
-    <script src="https://cdn.jsdelivr.net/npm/reefjs@7.6.1/dist/reef.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reefjs@7.6.1/dist/reef.polyfills.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reefjs@7.6.2/dist/reef.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reefjs@7.6.2/dist/reef.polyfills.min.js"></script>
     <script>
       var app = new Reef("#app", {
         data: {
@@ -17,11 +17,10 @@
           // return ''; // this not work
           // return ""; // this not work
           // return props.component.length; // this work
-          var result = '<div></div>';
           if (props.component.length > 0) {
             return props.component.length; // this work
           } else {
-            return result;
+            return '';
           }
         }
       });

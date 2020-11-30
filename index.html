@@ -17,8 +17,11 @@
           // return ''; // this not work
           // return ""; // this not work
           // return props.component.length; // this work
+          var result = '';
           if (props.component.length > 0) {
             return props.component.length; // this work
+          } else {
+            return result;
           }
         }
       });
